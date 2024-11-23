@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is an example dApp inspired by [quai-no-code-deployer](https://github.com/dominant-strategies/quai-no-code-deployer)
 
-## Getting Started
+# QUAI-NFT-DAPP
+This app demonstrates how to use Quais.js in a modern Next.js App. It leverages hardhat to compile and deploy a simple Solidity ERC721 smart contract on Quai Network.
 
-First, run the development server:
+The NFT requires a submission in QUAI to mint and offers functions for updating supply and mint price as well as withdrawing contract balance to the owner.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The dApp provides owner functionality when the connected address matches the owner address. 
+
+![screenshot](https://github.com/mpoletiek/quai-nft-dapp/blob/main/github_resources/app-screenshot.png?raw=true)
+
+# Getting Started
+
+Download the [Pelagus Wallet](https://pelaguswallet.io/) and visit the [Faucet](https://faucet.quai.network/) to get some QUAI.
+
+You will need some QUAI to deploy and interact with the dApp.
+
+Once the wallet is setup you will need to export your QUAI address's private key for hardhat to deploy your smart contract to the blockchain.
+
+## Clone the repo
+
+`git clone https://github.com/mpoletiek/quai-nft-dapp`
+
+## Install
+
+`npm i`
+
+## Setup Environment Variables
+Copy `.env.dist` to `.env` and modify `CYPRUS1_PK` with your address's private key and `INITIAL_OWNER` with your public address.
+
+```
+CYPRUS1_PK="0x0000000000000000000000000000000000000000000000000000000000000000"
+INITIAL_OWNER="0x0000000000000000000000000"
+```
+## Compile Smart Contract
+The smart contract resides at `contracts/ERC721.sol`
+
+Compile the smart contract using `npx hardhat compile`
+
+```
+Compiled 1 Solidity file successfully (evm target: london).
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy Smart Contract
+You should have already have some QUAI by visiting the [Faucet](https://faucet.quai.network) and copied your private key into `.env`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To deploy the contract run `npx hardhat run scripts/deployERC721.js`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Wait for the transaction to broadcast and get mined on Quai Network.
 
-## Learn More
+```
+Transaction broadcasted:  0x000
+Contract deployed to:  0x000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Note the contract address at the end of `Contract deployed to: <contract-address>`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configure dApp
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We need to tell the dApp where our contract resides.
 
-## Deploy on Vercel
+Edit `src/app/page.tsx` and set the contract address to your contract address from above.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+const { web3Provider, account } = useContext(StateContext);
+const contractAddress = "0x003e719cbEA0211fdbF9172F745542809bB4F0cE"; // Change this to your contract address
+const tokenuri = "https://example.com";
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Run the App
+
+To start the app use `npm run dev`
+
+```
+> quai-nft-dapp@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.0.3
+   - Local:        http://localhost:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ```
+
+ ## Try it Out!
+
+ Point your browser with Pelagus installed to `https://localhost:3000`
+
+ Connect your wallet, mint an NFT!
