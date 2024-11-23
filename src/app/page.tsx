@@ -25,7 +25,7 @@ export default function Mint() {
   const [remainingSupply, setRemainingSupply] = useState(0);
   const [contractBalance, setContractBalance] = useState(0);
   const { web3Provider, account } = useContext(StateContext);
-  const contractAddress = "0x0066Ff502C98260036c49c819bE3fE143067dEbe"; // Change this to your contract address
+  const contractAddress = "0x00793254BE6D5F0fBD882D79fd3dcE5cC50100D1"; // Change this to your contract address
   const tokenuri = "https://example.com";
 
   const getContractBalance = async () => {
@@ -336,6 +336,7 @@ export default function Mint() {
     <>
       <div className="font-serif container mx-auto p-6 max-w-lg">
         <div className="rounded-lg p-8">
+        
           <h1 className="text-3xl text-slate-200 font-bold text-center mb-6">QUAI NFT dApp</h1>
           <p className="font-serif text-slate-200 mb-10">An example dApp that mints NFTs and provides additional functionality to the contract owner.</p>
 
@@ -416,7 +417,6 @@ export default function Mint() {
             }
 
           </div>
-
           
         </div>
       </div>

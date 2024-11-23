@@ -1,4 +1,4 @@
-This is an example dApp inspired by [quai-no-code-deployer](https://github.com/dominant-strategies/quai-no-code-deployer)
+This is an example dApp inspired by [quai-no-code-deployer](https://github.com/dominant-strategies/quai-no-code-deployer) and [hardhat-example](https://github.com/dominant-strategies/hardhat-example) by [Dominant Strategies](https://github.com/dominant-strategies/).
 
 # QUAI-NFT-DAPP
 This app demonstrates how to use Quais.js in a modern Next.js App. It leverages hardhat to compile and deploy a simple Solidity ERC721 smart contract on Quai Network.
@@ -23,6 +23,7 @@ Once the wallet is setup you will need to export your QUAI address's private key
 
 ## Install
 
+`cd quai-nft-dapp`
 `npm i`
 
 ## Setup Environment Variables
@@ -59,7 +60,7 @@ Note the contract address at the end of `Contract deployed to: <contract-address
 
 We need to tell the dApp where our contract resides.
 
-Edit `src/app/page.tsx` and set the contract address to your contract address from above.
+Edit `src/app/page.tsx` and set the contract address to your contract address from above by editing the `contractAddress` variable on line 28.
 
 ```
 const { web3Provider, account } = useContext(StateContext);
