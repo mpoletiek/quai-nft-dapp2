@@ -336,7 +336,7 @@ export default function Mint() {
     <>
       <div className="font-serif container mx-auto p-6 max-w-lg">
         <div className="rounded-lg p-8">
-          <h1 className="text-3xl text-slate-200 font-bold text-center mb-6">Example NFT dApp on QUAI</h1>
+          <h1 className="text-3xl text-slate-200 font-bold text-center mb-6">QUAI NFT dApp</h1>
           <p className="font-serif text-slate-200 mb-10">An example dApp that mints NFTs and provides additional functionality to the contract owner.</p>
 
           <div className="mb-6">
