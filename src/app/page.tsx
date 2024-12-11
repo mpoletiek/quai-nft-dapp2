@@ -25,7 +25,7 @@ export default function Mint() {
   const [remainingSupply, setRemainingSupply] = useState(0);
   const [contractBalance, setContractBalance] = useState(0);
   const { web3Provider, account } = useContext(StateContext);
-  const contractAddress = "0x00793254BE6D5F0fBD882D79fd3dcE5cC50100D1"; // Change this to your contract address
+  const contractAddress = process.env.NEXT_PUBLIC_DEPLOYED_CONTRACT as string
   const tokenuri = "https://example.com";
 
   const getContractBalance = async () => {
