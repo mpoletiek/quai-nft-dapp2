@@ -19,7 +19,9 @@ Now let’s initialize our new Next.js app. Run the following command which asks
 
 `npx create-next-app@latest`
 
-Building and Deploying the NFT Smart Contract
+![npxcreate](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/npxcreate.png)
+
+## Building and Deploying the NFT Smart Contract
 Once the Next.js app is created we can open the `quai-nft-dapp` folder in VSCode and run a new terminal.
 
 For building and deploying the NFT smart contract on Quai, we’ll use the official [hardhat-example](https://github.com/dominant-strategies/hardhat-example) repo provided by Dominant Strategies (the development team behind Quai) as a reference.
@@ -52,6 +54,8 @@ Lastly we’ll install quais.js which is the ethers-like SDK for building on Qua
 To initialize our new hardhat project we will run the following, selecting defaults when asked. 
 
 `npx hardhat init`
+
+![npxhardhat](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/npxhardhat.png)
 
 This command creates a basic folder structure for hardhat and a few examples for us. 
 
@@ -119,6 +123,8 @@ RPC_URL="https://rpc.quai.network"
 ```
 
 Replace the values for `CYPRUS1_PK` and `INITIAL_OWNER` with your Quai wallet’s private key and public key respectively. If you’re using Pelagus you can copy your public key and replace `INITIAL_OWNER`. You’ll have to export your private key and replace `CYPRUS1_PK` with it. 
+
+![pelaguspriv](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/quaiprivkey.png)
 
 Next we’ll need to create the script for deploying our contract. 
 
@@ -250,15 +256,23 @@ There are functions only available to the contract owner which allows them to up
 Once this is all complete we can go ahead and compile our smart contract.
 `npx hardhat compile`
 
+![hardhatcompile](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/hardhatcompile.png)
+
 If everything was configured correctly we can run our `deployERC721.js` script to launch our smart contract on Quai:
 
 `npx hardhat run scripts/deployERC721.js`
 
+![hardhatdeploy](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/hardhatdeploy.png)
+
 The first thing this script does is broadcast a transaction on the Quai network. We will have to wait for the transaction to be mined to receive a result, but we can monitor the transaction hash on [quaiscan.io](https://quaiscan.io).
 
-Just search the hash presented on Quaiscan. Once it’s successful the script will return our contract address. 
+Just search the hash presented on Quaiscan. Once it’s successful the script will return our contract address.
+
+![deployfinished](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/hardhatdeployfinished.png)
 
 Take note of this contract address. We will need it later to build the app to interact with it. Save it in `.env.local` as `NEXT_PUBLIC_DEPLOYED_CONTRACT`
+
+![contractenv](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/deployedenv.png)
 
 You can also inspect the details of this contract by searching the address on [quaiscan.io](https://quaiscan.io).
 
@@ -1049,6 +1063,8 @@ export default function Mint() {
 
 ## Running the App
 Once all your changes are saved you can run `npm run dev` in the terminal and point your browser to `https://localhost:3000` to view your app!
+
+![runningapp](https://raw.githubusercontent.com/mpoletiek/quai-nft-dapp/refs/heads/main/github-artifacts/walkthrough-images/runningapp.png)
 
 When you connect with the wallet you used to deploy the app you will see the options to withdraw funds, and update supply or mint price. All other wallets will only be allowed to mint an NFT. The app won’t show this additional functionality to other wallets and the smart contract is written to only allow the owner to perform these functions. 
 
