@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/app/providers";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,10 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quai NFT dApp",
-  description: "An example NFT dApp on Quai",
+  title: "Quai NFT Dapp",
+  description: "Quai NFT Dapp",
 };
-
 
 export default function RootLayout({
   children,
@@ -25,15 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-	<html lang="en">
-  	<body
-    	className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-  	>
-    	<Providers>
-      	{children}
-    	</Providers>
-   	 
-  	</body>
-	</html>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
   );
 }

@@ -28,8 +28,8 @@ const initialState: StateData = {
 const reducer = (state: StateData, action: { type: keyof typeof typeStateMap; payload: any }) => {
   const stateName = typeStateMap[action.type];
   if (!stateName) {
-    console.warn(`Unknown action type: ${action.type}`);
-    return state;
+	console.warn(`Unknown action type: ${action.type}`);
+	return state;
   }
   return { ...state, [stateName]: action.payload };
 };
@@ -40,9 +40,9 @@ const DispatchContext = createContext<any>(null);
 const StateProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <DispatchContext.Provider value={dispatch}>
-      <StateContext.Provider value={state}>{children}</StateContext.Provider>
-    </DispatchContext.Provider>
+	<DispatchContext.Provider value={dispatch}>
+  	<StateContext.Provider value={state}>{children}</StateContext.Provider>
+	</DispatchContext.Provider>
   );
 };
 

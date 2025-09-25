@@ -1,0 +1,28 @@
+{
+  "description": "A unique digital collectible from the Quai NFT Collection. This NFT is part of an example project demonstrating how to build NFT dApps on the Quai Network. Each token represents a unique emoji from the OpenMoji project.", 
+  "external_url": "https://quai.network",
+  "image": "ipfs://<ipfs_hash>/<token_id>.png",
+  "name": "<emoji_name>",
+  "attributes": [
+    {
+      "trait_type": "Collection",
+      "value": "Quai NFT Example"
+    },
+    {
+      "trait_type": "Network",
+      "value": "Quai Network"
+    },
+    {
+      "trait_type": "Attribution",
+      "value": "Emoji designed by OpenMoji – the open-source emoji and icon project"
+    },
+    {
+      "trait_type": "License",
+      "value": "CC BY-SA 4.0"
+    },
+    {
+      "trait_type": "OpenMoji URL",
+      "value": "https://openmoji.org/"
+    }
+  ]
+}
