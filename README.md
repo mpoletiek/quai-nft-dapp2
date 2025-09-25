@@ -294,7 +294,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Emoji Assets**: [OpenMoji](https://openmoji.org) - CC BY-SA 4.0 License
 - **Smart Contracts**: [OpenZeppelin](https://openzeppelin.com/contracts/) - MIT License  
-- **Blockchain Network**: [Quai Network](https://quai.network/)
+- **Blockchain Network**: [Quai Network](https://qu.ai/)
 
 ## Support
 
